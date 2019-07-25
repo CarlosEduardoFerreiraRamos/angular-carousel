@@ -15,5 +15,9 @@
 .jcarousel li {
     /* Required only for block elements like <li>'s */
     float: left;
+    border: 18px solid #ffb100;
     // width: 100px;
+}
+.carousel-container {
+    display: inline-block;
 }

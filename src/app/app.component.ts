@@ -20,7 +20,8 @@ export class AppComponent implements AfterViewInit {
     // console.log(this.j.jcarousel)
     // console.log($('.jcarousel'))
     $('.jcarousel').jcarousel({
-    //     // Configuration goes here
+      wrap: 'circular',
+      center: true
     });
   }
 
