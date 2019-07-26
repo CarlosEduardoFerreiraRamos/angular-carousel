@@ -1,15 +1,25 @@
-import { Component, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, Directive, ViewContainerRef, TemplateRef, QueryList, ViewChildren } from '@angular/core';
 // import * as jQuery from 'jquery';
 declare var $: any;
 declare var jQuery: any;
+
+@Directive({selector: `[appDirect]`})
+export class AppDirective {
+  constructor(public vrc: ViewContainerRef,public t: TemplateRef<any>) {
+    this.vrc.createEmbeddedView(t);
+  }
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements AfterViewInit {
+
   title = 'angular-carousel';
   @ViewChild('jcarousel') j: any;
+  @ViewChildren(AppDirective) d = new QueryList<AppDirective>();
 
   ngAfterViewInit() {
     $(document).ready(() => {
@@ -23,6 +33,8 @@ export class AppComponent implements AfterViewInit {
       wrap: 'circular',
       center: true
     });
+
+    console.log(this.d)
   }
 
   onMoveRight() {

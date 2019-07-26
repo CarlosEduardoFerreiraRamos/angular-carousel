@@ -1,8 +1,23 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-  <h1>
+  <h1 *appDirect>
     Welcome to {{ title }}!
   </h1>
+  <h1 *appDirect>
+      Welcome to {{ title }}!
+    </h1>
+    <h1 *appDirect>
+        Welcome to {{ title }}!
+      </h1>
+      <h1 *appDirect>
+          Welcome to {{ title }}!
+        </h1>
+        <h1 *appDirect>
+            Welcome to {{ title }}!
+          </h1>
+          <h1 *appDirect>
+              Welcome to {{ title }}!
+            </h1>
   <div class="carousel-container">
     <div class="jcarousel">
       <ul>
@@ -17,5 +32,11 @@
     <button (click)="onMoveRight()">RIGHT</button>
   </div>
 </div>
+
+<ng-container *ngFor="let item of d">
+  <ng-template [ngTemplateOutlet]="item.t"></ng-template>
+</ng-container>
+
+
 
 <router-outlet></router-outlet>
